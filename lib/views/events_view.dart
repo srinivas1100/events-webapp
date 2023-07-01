@@ -1,4 +1,4 @@
-import 'package:events_webapp/services/event_service.dart';
+import 'package:events_webapp/viewmodels/events_provider.dart';
 import 'package:events_webapp/views/event_view.dart';
 import 'package:events_webapp/widgets/event_card.dart';
 import 'package:flutter/material.dart';
@@ -9,12 +9,12 @@ class EventsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _events = ref.watch(eventDataProvider);
+    final events = ref.watch(eventDataProvider);
     return Scaffold(
         appBar: AppBar(
           title: const Text("Events list"),
         ),
-        body: _events.when(
+        body: events.when(
             data: (eventList) => SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
