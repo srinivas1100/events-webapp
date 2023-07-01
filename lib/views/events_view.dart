@@ -29,8 +29,10 @@ class EventsView extends ConsumerWidget {
                               eventVenue: e.venue!.displayLocation!,
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        EventDetailsPage(eventData: e)));
+                                    builder: (context) => EventDetailsPage(
+                                        imageUrl:
+                                            e.performers!.first.images!.huge!,
+                                        eventData: e)));
                               }))
                           .toList(),
                     ),
